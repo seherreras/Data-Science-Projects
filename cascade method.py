@@ -1344,7 +1344,7 @@ def load_and_process_tables():
     # ----------------------------------------------------------------
     print("\n📂 STEP 1: Loading Excel files...")
    
-    file_path = 'C:/Users/Diego/Downloads/article/Unit_SOC_ISCO.xlsx'
+    file_path = 'Unit_SOC_ISCO.xlsx'
     
     try:
         table1 = pd.read_excel(file_path, sheet_name='ISCO-08')
@@ -1557,7 +1557,7 @@ def load_and_process_tables():
     
     # Save individual method results
     print("\n💾 Saving individual method results...")
-    output_base = 'C:/Users/Diego/Downloads/article/rev2/new/ISCOSOC/'
+    output_base = 'ISCOSOC/'
     
     if len(bow_results) > 0:
         bow_filename = f"{output_base}method_bow_results.csv"
@@ -1633,7 +1633,7 @@ def load_and_process_tables():
     # STEP 8: SAVE DETAILED RESULTS
     # ----------------------------------------------------------------
     print("\n💾 STEP 8: Saving detailed results...")
-    output_base = 'C:/Users/Diego/Downloads/article/rev2/new/ISCOSOC/'
+    output_base = 'ISCOSOC/'
     
     # Save threshold sensitivity results
     for thresh_name, data in sensitivity_results.items():
@@ -1741,7 +1741,7 @@ if __name__ == "__main__":
         print("=" * 80)
 
 # Cargar el archivo YA ANOTADO
-annotations = pd.read_csv('C:/Users/Diego/Downloads/validation_sample_for_annotation_iscosoc.csv', encoding='utf-8-sig',sep=';')
+annotations = pd.read_csv('validation_sample_for_annotation_iscosoc.csv', encoding='utf-8-sig',sep=';')
 
 # Calcular acuerdo entre anotadores
 agreement = calculate_inter_annotator_agreement(annotations)
@@ -1752,4 +1752,5 @@ if agreement:  # Solo si hay anotaciones válidas
     
     # Generar reporte
     if metrics:
+
         generate_validation_report(agreement, metrics)
